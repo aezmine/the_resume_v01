@@ -1,0 +1,288 @@
+/* ==========================================================================
+   Design Tokens
+   Editorial, typography-first system designed for straightforward expansion.
+   ========================================================================== */
+
+:root {
+  /* Color Palette — Warm Paper & Carbon Ink */
+  --bg: #faf9f6;
+  --text-primary: #141413;
+  --text-secondary: #575653;
+  --text-muted: #878580;
+  --border: #e4e2dd;
+  --border-strong: #141413;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Type Scale */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-display: clamp(2rem, 4.5vw, 3.25rem);
+
+  /* Layout & Spacing */
+  --max-width: 68rem;      /* 1088px */
+  --gutter: clamp(1.5rem, 5vw, 4rem);
+  --space-xs: 0.5rem;
+  --space-sm: 0.875rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: clamp(4rem, 10vh, 8rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111110;
+    --text-primary: #ededec;
+    --text-secondary: #a1a09a;
+    --text-muted: #6e6d68;
+    --border: #262624;
+    --border-strong: #ededec;
+  }
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  min-height: 100dvh;
+}
+
+/* ==========================================================================
+   Layout Shell
+   ========================================================================== */
+
+.layout-shell {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-identity {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  font-weight: 600;
+  font-size: var(--text-base);
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.header-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+}
+
+.meta-label {
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.meta-label::after {
+  content: ":";
+}
+
+.meta-value {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Main Content & Reusable Section Grid
+   ========================================================================== */
+
+.site-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-xl) 0;
+}
+
+.section-block + .section-block {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--border);
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .section-grid {
+    grid-template-columns: 3fr 9fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+}
+
+.section-index {
+  padding-top: 0.5rem;
+}
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.section-body {
+  max-width: 42rem;
+}
+
+.headline {
+  font-size: var(--text-display);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.lead {
+  font-size: var(--text-lg);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Specification / Data Ledger (Reusable for Project Rows)
+   ========================================================================== */
+
+.spec-list {
+  border-top: 1px solid var(--border);
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 540px) {
+  .spec-row {
+    grid-template-columns: 9rem 1fr;
+    gap: var(--space-md);
+    align-items: baseline;
+  }
+}
+
+.spec-term {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.spec-detail {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+.text-link {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  text-decoration-color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+

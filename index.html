@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nur Fathiah — Under Development</title>
+  <meta name="description" content="Portfolio of Nur Fathiah. Currently under development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="layout-shell">
+    <!-- Site Header: structured to accommodate future navigation links -->
+    <header class="site-header">
+      <div class="header-identity">
+        <a href="./" class="site-title">Nur Fathiah</a>
+        <span class="site-subtitle">Portfolio</span>
+      </div>
+      <div class="header-meta" aria-label="Site status">
+        <span class="meta-label">Status</span>
+        <span class="meta-value">In Development</span>
+      </div>
+    </header>
+
+    <!-- Main Content: modular section structure ready for additional sections (#work, #notes, #about) -->
+    <main class="site-main">
+      <section class="section-block" aria-labelledby="development-heading">
+        <div class="section-grid">
+          <div class="section-index">
+            <span class="mono-tag">00 / Notice</span>
+          </div>
+
+          <div class="section-body">
+            <h1 id="development-heading" class="headline">
+              Under Development.
+            </h1>
+            <p class="announcement">
+              Nur Fathiah Is Coming.
+            </p>
+            <p class="lead">
+              A thoughtful archive of work, projects, and notes is currently in progress.
+            </p>
+
+            <!-- Specification / Status Ledger: reusable pattern for future project index rows -->
+            <dl class="spec-list">
+              <div class="spec-row">
+                <dt class="spec-term">Phase</dt>
+                <dd class="spec-detail">Architecture &amp; Content Curation</dd>
+              </div>
+              <div class="spec-row">
+                <dt class="spec-term">Scope</dt>
+                <dd class="spec-detail">Selected Projects, Systems &amp; Technical Notes</dd>
+              </div>
+              <div class="spec-row">
+                <dt class="spec-term">Inquiries</dt>
+                <dd class="spec-detail">
+                  Available for select collaborations — <a href="mailto:hello@example.com" class="text-link">Get in touch</a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="copyright">&copy; <span id="year">2026</span>. All rights reserved.</p>
+        <nav class="footer-links" aria-label="External links">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-link">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-link">LinkedIn</a>
+          <a href="mailto:hello@example.com" class="text-link">Email</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
